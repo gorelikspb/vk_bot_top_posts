@@ -3,5 +3,7 @@
 __pycache__
 myvenv
 
-
+config.py
 settings.json
+
+#add something to check branching

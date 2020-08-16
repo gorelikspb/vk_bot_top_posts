@@ -13,7 +13,4 @@ server1 = Server(vk_api_token, 4569, "server1")
 
 # server1.test()
 
-
-
-
 server1.start()

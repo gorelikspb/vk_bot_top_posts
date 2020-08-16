@@ -62,26 +62,26 @@ class Server:
                 print(" --- ")
 
                 text =  text.split()
-                print (text)
-                print (len(text))
-
-
-                if text[0] == "топ" or "top":
+                
+                top_function = False
+                
+                if text[0] == ("топ" or "top"): 
                     top_function = True
-                if len(text)>1 and text[1].isdigit():
-                    print (text[1])
+                
+                if len(text)>1 and text[1].isdigit(): #first parameter is a count                    
                     count = int(text[1])
-                else: count = 100
-                if len(text)>2 and text[2].isdigit():
+                else: count = 100 #default value
+                if len(text)>2 and text[2].isdigit(): #second parameter is an offset
                     offset = int(text[2])
-                else: offset = 1
+                else: offset = 1 #1 for skipping pinned post
 
-                print (count, offset)
-                
-                
-                self.send_msg(user_id, message = top.top(count=count, offset=offset))
+                if top_function:
+                    self.send_msg(user_id, message = top.top(count=count, offset=offset))
+                    # desc = "в предыдущем сообщении список самых популярных постов, выбранных из " + count + "последних со смещением " + offset
+        
+                    # self.send_msg(user_id, f"{username}, {desc}")
                 # else:
-                    # self.send_msg(user_id, f"{username}, я получил ваше сообщение!")
+                #     self.send_msg(user_id, f"{username}, я получил ваше сообщение!")
 
     def get_user_name(self, user_id):
         """ Получаем имя пользователя"""
