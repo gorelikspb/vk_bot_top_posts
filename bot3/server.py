@@ -65,21 +65,19 @@ class Server:
                 print (text)
                 print (len(text))
 
+                top_function = False
 
-                if text[0] == "топ" or "top":
+                if text[0] == ("топ" or "top"):
                     top_function = True
                 if len(text)>1 and text[1].isdigit():
-                    print (text[1])
                     count = int(text[1])
                 else: count = 100
                 if len(text)>2 and text[2].isdigit():
                     offset = int(text[2])
                 else: offset = 1
-
-                print (count, offset)
                 
-                
-                self.send_msg(user_id, message = top.top(count=count, offset=offset))
+                if top_function:
+                    self.send_msg(user_id, message = top.top(count=count, offset=offset))
                 # else:
                     # self.send_msg(user_id, f"{username}, я получил ваше сообщение!")
 
