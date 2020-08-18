@@ -76,8 +76,11 @@ class Server:
                     offset = int(text[2])
                 else: offset = 1
                 
+
                 if top_function:
-                    self.send_msg(user_id, message = top.top(count=count, offset=offset))
+                    top_string, postscriptum = top.top(count=count, offset=offset)
+                    self.send_msg(user_id, message = top_string)
+                    self.send_msg(user_id, message = postscriptum)
                 # else:
                     # self.send_msg(user_id, f"{username}, я получил ваше сообщение!")
 
