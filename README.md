@@ -1,5 +1,3 @@
-# vk_bot_top_posts
-
 VK  бот c рекомендациями контента
 ----
 Технологии: Python, Vkontakte API
